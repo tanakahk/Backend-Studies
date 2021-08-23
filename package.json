@@ -1,0 +1,30 @@
+{
+  "name": "backend-studies",
+  "version": "1.0.0",
+  "description": "API de estudos",
+  "main": "src/server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.9",
+    "mysql2": "^2.3.0",
+    "objection": "^2.2.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanakahk/Backend-Studies.git"
+  },
+  "author": "Tanaka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tanakahk/Backend-Studies/issues"
+  },
+  "homepage": "https://github.com/tanakahk/Backend-Studies#readme"
+}
