@@ -29,5 +29,3 @@ services:
 networks: 
   intnet:
     driver: bridge
-
-# 1- docker-compose up --build
