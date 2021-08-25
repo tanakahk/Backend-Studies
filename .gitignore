@@ -2,3 +2,4 @@ node_modules
 .docker
 .DS_Store
 .idea
+.env
