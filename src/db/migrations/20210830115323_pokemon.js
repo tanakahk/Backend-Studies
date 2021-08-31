@@ -29,7 +29,7 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema
-    .table("pokemons", function (table) {
+    .table("pokemon_images", function (table) {
       table.dropForeign("pokemon_id")
     })
     .table("pokemon_types", function (table) {
@@ -37,5 +37,8 @@ exports.down = function (knex) {
       table.dropForeign("type_id")
     })
     .dropTable("pokemon_types")
+    .dropTable("pokemon_images")
+    .dropTable("types")
     .dropTable("pokemons")
+    
 };

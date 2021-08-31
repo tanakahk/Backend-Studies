@@ -17,17 +17,17 @@ const init = () => {
 
     it("nome do teste", (done) => {
       expect("a").equal("a")
-      expect("a").equal("b")
+      // expect("a").equal("b")
       done()
     })
 
-    /* it("valida soma", (done) => {
+    it("valida soma", (done) => {
       expect(sum(1,2)).equal(3)
       done()
-    }) */
+    })
   })
 }
 
 init()
 
-const sum = (a, b) => a + b + 1
+const sum = (a, b) => a + b

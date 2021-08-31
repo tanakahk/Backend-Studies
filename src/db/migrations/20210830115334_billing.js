@@ -1,4 +1,4 @@
-const { createdAt, updatedAt } = require("../helpers");
+const { createdAt, updatedAt, foreign } = require("../helpers");
 
 exports.up = function (knex) {
   return knex.schema
