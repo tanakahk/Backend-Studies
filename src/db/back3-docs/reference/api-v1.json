@@ -1,0 +1,224 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API do backend 3 da Ingate Educa",
+    "version": "1.0",
+    "summary": "API do backend 3 da Ingate Educa",
+    "description": "API do backend 3 da Ingate Educa",
+    "contact": {
+      "name": "Tanaka",
+      "url": "https://github.com/tanakahk"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "dev"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "operationId": "post-login",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/LoginObj"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "OK",
+                      "result": {
+                        "id": "1",
+                        "name": "fulano",
+                        "token": "oiqwejrsamkbdczweoirasmbnzx"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "USER_NOT_FOUND",
+                        "WRONG_PWD"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "status": "USER_NOT_FOUND"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "pwd": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "username": "fulano",
+                    "pwd": "asd do fulano"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "title": "User",
+        "type": "object",
+        "description": "",
+        "examples": [
+          {
+            "id": 142,
+            "firstName": "Alice",
+            "lastName": "Smith",
+            "email": "alice.smith@gmail.com",
+            "dateOfBirth": "1997-10-31",
+            "emailVerified": true,
+            "signUpDate": "2019-08-24"
+          }
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "name",
+          "username"
+        ]
+      },
+      "Pokemon": {
+        "title": "Pokemon",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "weight": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "height",
+          "weight",
+          "price"
+        ]
+      },
+      "LoginObj": {
+        "title": "LoginObj",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "token"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT token": []
+    }
+  ]
+}
