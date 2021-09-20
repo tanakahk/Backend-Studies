@@ -4,6 +4,8 @@ services:
     container_name: back3-api
     build: .
     restart: "no"
+    env_file:
+      - .env
     volumes: 
       - .:/usr/src/app
     ports: 
