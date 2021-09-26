@@ -29,6 +29,4 @@ class PokemonImg extends Model {
   // static get modifiers() { }
 }
 
-console.log("User.tableName", User.tableName);
-
 module.exports = PokemonImg

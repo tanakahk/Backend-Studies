@@ -15,7 +15,7 @@ class Billing extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["pokemon_id", "user_pokemon", "trx_type", "amount"],
+      required: ["pokemon_id", "user_id", "trx_type", "amount"],
       properties: {
         id: { type: "integer" },
         created_at: { type: "timestamp" },
@@ -25,8 +25,8 @@ class Billing extends Model {
         trx_type: { type: "integer" }, // 0- sell; 1- buy
         amount: { type: "integer" },
 
-        pokemon_id: { type: "integer" },
         user_id: { type: "integer" },
+        pokemon_id: { type: "integer" },
       },
     }
   }
@@ -35,7 +35,5 @@ class Billing extends Model {
 
   // static get modifiers() { }
 }
-
-console.log("User.tableName", User.tableName);
 
 module.exports = Billing

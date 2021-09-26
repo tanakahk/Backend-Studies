@@ -1,6 +1,5 @@
 const { Model } = require("objection")
 const knex = require("../db/knex")
-const UserPokemon = require("./UserPokemon")
 
 Model.knex(knex)
 
@@ -64,7 +63,7 @@ class Pokemon extends Model {
         relation: Model.ManyToManyRelation,
         modelClass: Type,
         join: {
-          from: "Pokemon.id",
+          from: "pokemons.id",
           through: {
             modelClass: PokemonType,
             from: "pokemon_types.pokemon_id", //aqui o yoyo usou user_types, mas eu acho que ele errou
@@ -78,7 +77,5 @@ class Pokemon extends Model {
 
   // static get modifiers() { }
 }
-
-console.log("User.tableName", User.tableName);
 
 module.exports = Pokemon

@@ -35,7 +35,11 @@
                     "result": {
                       "$ref": "#/components/schemas/LoginObj"
                     }
-                  }
+                  },
+                  "required": [
+                    "status",
+                    "result"
+                  ]
                 },
                 "examples": {
                   "example-1": {
@@ -102,7 +106,11 @@
                   "pwd": {
                     "type": "string"
                   }
-                }
+                },
+                "required": [
+                  "username",
+                  "pwd"
+                ]
               },
               "examples": {
                 "example-1": {
@@ -115,6 +123,111 @@
             }
           },
           "description": ""
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/signup": {
+      "post": {
+        "summary": "Signup",
+        "operationId": "post-signup",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/LoginObj"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "result"
+                  ]
+                },
+                "examples": {
+                  "OK": {
+                    "value": {
+                      "status": "OK",
+                      "result": {
+                        "id": "1",
+                        "name": "Tanaka",
+                        "token": "qnp9ianr89f0q3nm4a8v90qbhfa"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "USER_EXISTS": {
+                    "value": {
+                      "status": "USER_EXISTS"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Signup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "pwd": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "username",
+                  "pwd"
+                ]
+              },
+              "examples": {
+                "Exemplo": {
+                  "value": {
+                    "name": "Tanaka",
+                    "username": "tanaka",
+                    "pwd": "senhasecreta"
+                  }
+                }
+              }
+            }
+          }
         },
         "tags": [
           "users"
