@@ -46,7 +46,7 @@ class User extends Model {
             to: "user_pokemons.pokemon.id",
           },
           to: "pokemons.id"
-        }
+        },
       },
       billings: {
         relation: Model.HasManyRelation,
@@ -54,14 +54,12 @@ class User extends Model {
         join: {
           from: "users.id",
           to: "billings.user_id",
-        }
-      }
+        },
+      },
     }
   }
 
   // static get modifiers() { }
 }
-
-console.log("User.tableName", User.tableName);
 
 module.exports = User

@@ -1,3 +1,4 @@
+const { jwtSign } = require('../../helpers/jwtHelpers')
 const User = require('../../models/User')
 
 const validateRequest = (req, response) => {
@@ -10,7 +11,6 @@ const validateRequest = (req, response) => {
     response.status = "NO_PASSWORD"
     return false
   }
-  
   return true
 }
 
@@ -21,13 +21,18 @@ const postLogin = async (req, res) => {
     return res.status(400).json(response)
   }
   
-  const user = await User.query().where({ name: req.body.username }).first()
+  const user = await User.query().where({ username: req.body.username }).first()
   if (!user) {
     response.status = "USER_NOT_FOUND"
     return res.status(401).json(response)
   }
-  console.log("user", user);
   
+  response.status = "OK"
+  response.result = {
+    id: user.id,
+    name: user.name,
+    token: jwtSign({ id: user.id }),
+  }
   return res.json(response)
 }
 

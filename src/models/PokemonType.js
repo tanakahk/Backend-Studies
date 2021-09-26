@@ -24,6 +24,4 @@ class PokemonType extends Model {
   // static get modifiers() { }
 }
 
-console.log("User.tableName", User.tableName);
-
 module.exports = PokemonType
