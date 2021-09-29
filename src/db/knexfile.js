@@ -57,6 +57,8 @@ if (process.env.NODE_ENV === "test") {
   config.client = "sqlite3"
   config.connection = ":memory:"
   config.useNullAsDefault = true
+  config.connection.database = null
+  config.migrations.schemaName = null
 }
 
 module.exports = config

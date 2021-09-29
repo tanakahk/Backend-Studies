@@ -8,6 +8,9 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(routerV1)
 
-app.listen(process.env.PORT, () => {
-  console.log(`funcionando na porta: ${process.env.PORT}`);
+const port = process.env.NODE_ENV === "test" ? 5001 : 5000
+app.listen(port, () => {
+  console.log(`funcionando na porta: ${port}`);
 })
+
+module.exports = app
