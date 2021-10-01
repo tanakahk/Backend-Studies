@@ -28,9 +28,9 @@ class UserPokemon extends Model {
     }
   }
 
-//   static get relationMappings() { }
+  //   static get relationMappings() { }
 
-//   static get modifiers() { }
+  //   static get modifiers() { }
 }
 
 module.exports = UserPokemon

@@ -12,7 +12,7 @@ const validateRequest = (req, response) => {
     response.status = "NO_USERNAME"
     return false
   }
-  
+
   if (!req.body.pwd) {
     response.status = "NO_PASSWORD"
     return false
@@ -22,11 +22,11 @@ const validateRequest = (req, response) => {
 
 const postSignup = async (req, res) => {
   const response = { status: "ERROR" }
-  
+
   if (!validateRequest(req, response)) {
     return res.status(400).json(response)
   }
-  
+
   const user = await User.query().where({ name: req.body.name }).first()
   if (user) {
     response.status = "USER_EXISTS"

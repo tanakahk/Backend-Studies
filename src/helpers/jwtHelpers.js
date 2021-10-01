@@ -21,7 +21,7 @@ const jwtAuthenticate = async (req, res, next) => {
       req.decodedToken = decoded
       req.user = user
       return next()
-    }  
+    }
   } catch (err) {
     console.warn(err);
   }

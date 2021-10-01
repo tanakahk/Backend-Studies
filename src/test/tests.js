@@ -31,14 +31,14 @@ const init = () => {
     })
 
     it("valida soma", (done) => {
-      expect(sum(1,2)).equal(3)
+      expect(sum(1, 2)).equal(3)
       done()
     })
 
     it("Signup", (done) => {
       request(server)
         .post("/v1/signup")
-        .send({ name: user.name , username: user.username , pwd: user.pwd })
+        .send({ name: user.name, username: user.username, pwd: user.pwd })
         .then((res) => {
           // console.log("Signup", res.body);
           expect(res.body.status).equal("OK")
@@ -78,7 +78,7 @@ const init = () => {
     it("Signup - No PWD", (done) => {
       request(server)
         .post("/v1/signup")
-        .send({ name: user.name , username: user.username })
+        .send({ name: user.name, username: user.username })
         .then((res) => {
           // console.log("Signup", res.body);
           expect(res.statusCode).equal(400)
@@ -90,7 +90,7 @@ const init = () => {
     it("Login", (done) => {
       request(server)
         .post("/v1/login")
-        .send({ username: user.username , pwd: user.pwd })
+        .send({ username: user.username, pwd: user.pwd })
         .then((res) => {
           // console.log("Login", res.body);
           expect(res.body.status).equal("OK")
