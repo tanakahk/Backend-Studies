@@ -40,5 +40,5 @@ exports.down = function (knex) {
     .dropTable("types")
     .dropTable("pokemon_images")
     .dropTable("pokemons")
-    
+
 };
