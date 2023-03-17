@@ -1,5 +1,5 @@
-# Backend-Studies
-Aulas de Backend com o Yoyo da Ingate Educa 
+## Curso de Backend e API
+Ministrado pelo Yoyo na plataforma Ingate
 
 ```bash
 # Buildar o container:
